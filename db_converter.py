@@ -12,7 +12,7 @@ import re
 import sys
 import os
 import time
-import subprocess
+from contrib import subprocess
 
 
 def parse(input_filename, output_filename):
