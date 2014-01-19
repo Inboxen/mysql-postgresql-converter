@@ -1,12 +1,15 @@
 MySQL to PostgreSQL Converter
 =============================
 
-Lanyrd's MySQL to PostgreSQL conversion script. Use with care.
+Forked from Lanyrd's MySQL to PostgreSQL conversion script. Use with care.
 
-This script was designed for our specific database and column requirements -
-notably, it doubles the lengths of VARCHARs due to a unicode size problem we
-had, places indexes on all foreign keys, and presumes you're using Django
-for column typing purposes.
+This script was changed for our specific database and column requirements -
+notably, VARCHARs have COLLATE removed beacuse we used utf8mb4 in MySQL (which
+Postgres calls utf8), places indexes on all foreign keys, and presumes you're
+using Django for column typing purposes.
+
+To reiterate: this script assumes your MySQL database was using the utf8mb4
+encoding and the target Postgres database is using utf8.
 
 How to use
 ----------
@@ -29,4 +32,7 @@ Finally, load your new dump into a fresh PostgreSQL database using:
 More information
 ----------------
 
-You can learn more about the move which this powered at http://lanyrd.com/blog/2012/lanyrds-big-move/ and some technical details of it at http://www.aeracode.org/2012/11/13/one-change-not-enough/.
+You can learn more about the move which this powered at
+<http://lanyrd.com/blog/2012/lanyrds-big-move/> and some technical details of it
+at <http://www.aeracode.org/2012/11/13/one-change-not-enough/>. You can out
+about Inboxen's motives at <https://inboxen.org/blog/post/12>.
